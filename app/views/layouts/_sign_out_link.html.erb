@@ -1,0 +1,5 @@
+<h4>
+    Hi <%= link_to current_user.name, user_path(current_user), class: 'username'%>
+    |
+    <%= link_to 'Sign out', sign_out_path, method: :delete %>
+</h4>
