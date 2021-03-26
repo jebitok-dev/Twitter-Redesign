@@ -1,6 +1,24 @@
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<section>
+  <%= form_for @user do |user| %>
+  <div class="edit-path">
+      <p id="notice"><%= notice %></p>
+      <div class="form-group">
+        <%= user.label :username, "Username:" %>
+        <%= user.text_field :username, placeholder: "Username", class: "username-field"%>
+      </div>
+      <div class="form-group">
+        <%= user.label :fullname, "Full Name:" %>
+        <%= user.text_field :fullname, placeholder: "Full Name", class: "fullname-field"%>
+      </div>
+      <div class="form-group">
+        <%= user.label :photo, "Profile photo:" %>
+        <%= user.text_field :photo %>
+      </div>
+      <div class="form-group">
+        <%= user.label :coverImage, "Cover Image:" %>
+        <%= user.text_field :coverimage %>
+      </div>
+      <%= user.submit "Update info", class:'btn' %>
+    </div>
+  <% end %>
+</section>

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'opinions#index'
 
-  get '/sign_in', to: 'sessions#new'
-  post '/sign_in', to: 'sessions#create'
-  delete '/sign_out', to: 'sessions#delete'
+  get '/signup', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#delete'
   
   resources :users, only: %i[show new create]
   resources :opinions, only: %i[index show new create ]

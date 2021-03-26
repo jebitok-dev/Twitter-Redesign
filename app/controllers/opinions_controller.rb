@@ -23,10 +23,15 @@ class OpinionsController < ApplicationController
     @users = User.all
   end
 
+  def add_user_to_opinion(user)
+    redirect_to user
+  end
+  helper_method :add_user_to_opinion
+
   private
 
-    # Only allow a list of trusted parameters through.
-    def opinion_params
-      params.require(:opinion).permit(:author_id, :text, :createdAt)
-    end
+  # Only allow a list of trusted parameters through.
+  def opinion_params
+    params.require(:opinion).permit(:author_id, :text, :createdAt)
+  end
 end

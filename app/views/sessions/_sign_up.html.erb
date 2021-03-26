@@ -1,0 +1,23 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+              <h2 class="title is-2">Sign Up</h2>
+
+      <%= simple_form_for :session, url:signup_path do |f|  do |f| %>
+        <%= flash[:message] %>
+        <div class="field">
+            <div class="control">
+                <%= f.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
+            </div> 
+            <div class="control">
+                <%= f.text_field :fullname, placeholder:"Full Name", class:"fullname-field", id:"fullname"%>
+            </div>
+        </div>
+      <% end %>
+      <br />
+      <%= render "" %>
+      </div>
+    </div>
+  </div>
+</section>
