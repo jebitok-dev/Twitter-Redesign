@@ -1,39 +1,58 @@
-<div class="login-background">
-  <div class="login">
-    <div class="image">
-    </div>
-    <%= form_for @user do |user| %>
-      <div class="path">
-      <% if flash[:error_messages]%>
-        <% flash[:error_messages].each do |errormessage|%>
-          <%= errormessage %><br>
-        <% end %>
-      <% end %>
-        <div>
-          <span class="material-icons" id="login-icon">face</span>
-          <h3>Sign up!</h3>
-        </div>
-        <div>
-          <span class="material-icons">person</span>
-          <%= user.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
-        </div>
-        <div>
-          <span class="material-icons">create</span>
-          <%= user.text_field :fullname, placeholder:"Full name", class:"username-field",  id:"fullname"%>
-        </div>
-        <div>
-          <h5>Add profile photo: </h5>
-          <%= user.file_field :photo, id:"photo" %>
-        </div>
-        <div>
-          <h5>Add cover photo: </h5>
-          <%= user.file_field :coverimage, id:"coverimage" %>
-        </div>
-        <div>
-          <span>Already have an account? <%= link_to "Login", login_path %></span>
-          <%= user.submit "Sign up", class:'btn is-info', id:"signup"%>
-        </div>
-      </div>
-    <% end %>
+<div class="login-cover text-center">
+  <div class="twitter-logo">
+      <i class="fab fa-twitter fa-3x"></i>
   </div>
+  <h3>Sign Up to Twitter</h3>
 </div>
+<% if @user.errors.any? %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+            <div class="panel-body">
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>      
+      </div>
+    </div>
+<% end %>
+<%= form_for (@user), :url => users_path, :html => {class: "text-center login-form"} do |f| %>
+  <div class="form-label">
+    <%= f.label :Username, class: "username-label" %>
+  </div>
+  <div class="form-input">
+    <%= f.text_field :Username, class: "username-input", placeholder: "Enter Username" %>
+  </div>
+
+  <div class="form-label">
+    <%= f.label :Fullname, class: "Fullname-label" %>
+  </div>
+  <div class="form-input">
+    <%= f.text_field :Fullname, class: "Fullname-input", placeholder: "Enter Fullname" %>
+  </div>
+
+  <div class="form-label">
+    <%= f.label :Photo, class: "Photo-label" %>
+  </div>
+  <div class="form-input">
+    <%= f.file_field :Photo, class: "Photo-input text-center" %>
+  </div>
+
+  <div class="form-label">
+    <%= f.label :CoverImage, class: "cover-image-label" %>
+  </div>
+  <div class="form-input">
+    <%= f.file_field :CoverImage, class: "cover-image-input text-center" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Sign Up",  class: "btn btn-primary signup-btn"%>    
+  </div>
+  <%= link_to "Login in to Twitter", login_path %>
+<% end %>

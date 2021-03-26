@@ -10,9 +10,9 @@
           <%= f.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
         </div>
         <div class="control">
-          <span>Dont have an account? <%= link_to "Sign up", signup_path %></span>
           <%= f.button :submit, "Login", class:'btn is-info is-medium', id:"login" %>
         </div>
+        <span>Don't have an account? <%= link_to "Sign up", signup_path %></span>
       </div>
     <% end %>
   </div>
