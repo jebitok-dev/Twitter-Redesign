@@ -19,6 +19,6 @@ class SessionsController < ApplicationController
   def delete
     session.delete(:user_id)
     @current_user = nil
-    redirect_to sign_in_path
+    redirect_to root_path
   end
 end

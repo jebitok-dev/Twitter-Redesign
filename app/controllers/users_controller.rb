@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:info] = 'The user was saved successfully.'
-      redirect_to sign_in_path
+      redirect_to login_path
     else
       flash[:info] = @user.errors.full_messages
       render :new
