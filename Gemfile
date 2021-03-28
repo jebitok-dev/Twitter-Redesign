@@ -8,9 +8,9 @@ gem 'rails', '~> 6.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
+gem 'bulma-rails', '~> 0.9.1'
 gem 'puma', '~> 5.0'
 gem 'simple_form'
-gem 'bulma-rails', '~> 0.9.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

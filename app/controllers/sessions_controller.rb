@@ -1,24 +1,21 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create delete]
-
-  def new
-    redirect_to user_path(current_user) if current_user
-  end
+  def new; end
 
   def create
-    user = User.find_by_username(params[:username])
+    user = User.find_by(username: params[:session][:username].downcase)
     if user
       session[:user_id] = user.id
-      redirect_to root_path
+      flash[:notice] = 'You have successfully logged in'
+      redirect_to root_path(user)
     else
-      flash.now[:info]
+      flash.now[:alert] = 'There was something wrong with your login information'
       render 'new'
     end
   end
 
-  def delete
-    session.delete(:user_id)
-    @current_user = nil
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = 'You have logged out'
     redirect_to root_path
   end
 end

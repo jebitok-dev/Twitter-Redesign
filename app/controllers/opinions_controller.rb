@@ -1,6 +1,8 @@
 class OpinionsController < ApplicationController
   def index
     @opinions = Opinion.all
+    @users = User.all_users(current_user.id).order('created_at DESC')
+    @opinions = Opinion.order('created_at DESC').includes(:author).limit(5)
   end
 
   def new
@@ -8,13 +10,15 @@ class OpinionsController < ApplicationController
   end
 
   def create
-    @opinion = current_user.events.build(opinion_params)
+    @opinion = Opinion.new(opinion_params)
+    @opinion.author_Id = current_user.id
+
     if @opinion.save
       flash[:info] = 'The opinion was created successfully.'
-      redirect_to opinions_path
+      redirect_to root_path
     else
       flash[:info] = @opinions.errors.full_messages
-      render :new
+      render 'index'
     end
   end
 
@@ -22,11 +26,6 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.find(params[:id])
     @users = User.all
   end
-
-  def add_user_to_opinion(user)
-    redirect_to user
-  end
-  helper_method :add_user_to_opinion
 
   private
 

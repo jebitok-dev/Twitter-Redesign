@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
-
   def index
     @users = User.all
   end
@@ -17,7 +15,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:info] = 'The user was saved successfully.'
-      redirect_to login_path
+      redirect_to root_path
     else
       flash[:info] = @user.errors.full_messages
       render :new
@@ -27,16 +25,11 @@ end
 
 def show
   @user = User.find(params[:id])
+  @opinions = @user.opinions.order('created_at DESC').limit(5)
 end
 
   private
 
-# Use callbacks to share common setup or constraints between actions.
-# def set_user
-#   @user = User.find(params[:id])
-# end
-
-# Only allow a list of trusted parameters through.
 def user_params
   params.require(:user).permit(:username, :fullname, :photo, :coverImage, :createdAt)
 end
