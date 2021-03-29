@@ -1,8 +1,11 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <%= render 'profile' %>
-      <%= render 'trends' %>
+      <% if logged_in? %>
+        <%= render 'profile' %>
+      <% else %>
+        <%= render 'trends' %>
+      <% end %>
       <%= render 'feed' %>
       <%= render 'who-to-follow' %>
     </div>
