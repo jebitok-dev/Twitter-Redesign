@@ -1,17 +1,15 @@
 class OpinionsController < ApplicationController
-  def index
-    @opinions = Opinion.all
-    @users = User.all_users(current_user.id).order('created_at DESC')
-    @opinions = Opinion.order('created_at DESC').includes(:author).limit(5)
-  end
+  before_action :authorize, only: [:index]
 
-  def new
+  def index
     @opinion = Opinion.new
+    @opinions = Opinion.all.order('created_at DESC')
+    @users = User.all_users(current_user.id).order('created_at DESC')
   end
 
   def create
     @opinion = Opinion.new(opinion_params)
-    @opinion.author_Id = current_user.id
+    @opinion.author_id = current_user.id
 
     if @opinion.save
       flash[:info] = 'The opinion was created successfully.'

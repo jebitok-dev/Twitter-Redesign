@@ -11,6 +11,7 @@ gem 'pg', '~> 1.1'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'puma', '~> 5.0'
 gem 'simple_form'
+gem 'gravatar_image_tag', '~> 1.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
