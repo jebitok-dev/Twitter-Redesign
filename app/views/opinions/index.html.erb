@@ -1,14 +1,12 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <% if logged_in? %>
-        <%= render 'profile' %>
-      <% else %>
-        <%= render 'trends' %>
-      <% end %>
+        <%= render 'sidebar' %>
+        <%# <%= render 'profile' %>
+        <%# <%= render 'trends' %>
       <%= render 'feed' %>
       <%= render 'who-to-follow' %>
     </div>
   </div>
 </section>
-<%= link_to 'New Opinion', new_opinion_path %>
+<%= link_to '', new_opinion_path %>

@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -25,7 +26,7 @@
     <nav class="navbar is-info">
         <div class="navbar-brand">
             <%= link_to root_path, class: "navbar-item" do %>
-              <h1 class="title is-5">Twitter</h1>
+              <h1 class="title is-5"><a href="#" class="fa fa-twitter"></a></h1>
             <% end %>
             <div class="navbar-burger burger" data-target="navbarExample">
               <span></span>
@@ -36,23 +37,13 @@
         <div id="navbarExample" class="navbar-menu">
             <div class='navbar-end'>
               <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to 'New Opinion', new_opinion_path, class: "button is-info is-inverted" %>
-                </p>
-                <p>
-                  <%= link_to "Logout", logout_path, method: :delete, class:"button is-info" %>
-                </p>
-                <p class="control">
-                  <%= link_to 'Sign In', signup_path, class: "button is-info" %>
-                </p>
-                <%# <p class="control">
-                  <%= link_to 'Sign Up', new_user_registra_path, class: "button is-info" 
-                </p> %>
+                <p class="control space"><a href="#" class="fa fa-pencil"></a></p>
+                <p class="control space"><a href="#" class="fa fa-envelope"></a></p>
+                <p class="control space"><a href="#" class="fa fa-search"></a></p>
+                <p class="control space"><a href="#" class="fa fa-cog"></a></p>
               </div>
-                    <%# <%= show_sign_links %> 
               </div>
             </div>
-            <%# <%= show_navigation_items %> 
           </div>
         </div>
     </nav>
