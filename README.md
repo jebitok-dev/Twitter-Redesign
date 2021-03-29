@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Exclusive-Clubhouse(Members-Only)
+# Twitter-Redesign
 
 <!-- ![screenshot](./app/assets/images/clubhse1.png) -->
 
