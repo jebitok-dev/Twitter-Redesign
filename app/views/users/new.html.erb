@@ -4,25 +4,12 @@
   </div>
   <h3>Sign Up to Twitter</h3>
 </div>
-<% if @user.errors.any? %>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="panel panel-danger">
-          <div class="panel-heading">
-            <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
-            <div class="panel-body">
-              <ul>
-                <% @user.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>      
-      </div>
-    </div>
-<% end %>
 <%= form_for (@user), :url => users_path, :html => {class: "text-center login-form"} do |f| %>
+  <% if flash[:error_messages]%>
+        <% flash[:error_messages].each do |errormessage|%>
+          <%= errormessage %><br>
+        <% end %>
+  <% end %>
   <div class="form-label">
     <%= f.label :Username, class: "username-label" %>
   </div>

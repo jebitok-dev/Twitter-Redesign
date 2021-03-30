@@ -1,29 +1,64 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @user.photo %>
-</p>
-
-<p>
-  <strong>Coverimage:</strong>
-  <%= @user.coverImage %>
-</p>
-
-<p>
-  <strong>Createdat:</strong>
-  <%= @user.createdAt %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="user-section">
+  <div class="middle-section container">
+    <img class="cover-img" src="<%= @user.coverimage %>">
+    <div class="new-tweets">
+      <h4>ALL TWEETS</h4>
+      <% @user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
+        <div class="user-det">
+          <img class="user-photo" src="<%= @user.photo %>">
+          <div class="user-name">
+            <span><%= @user.username %></span>
+            <span><%= opinion.text%></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="rightbar-user">
+    <div class="user-det">
+      <div class="photo-adduser">
+        <% if !current_user.already_follow?(@user.id) && @user.id!=current_user.id%>
+          <%= link_to follow_user_path(@user.id) do %>
+            <span class="material-icons">add_circle_outline</span>
+          <% end %>
+          <% else %>
+            <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
+        <% end %>
+        <img class="profile-photo" src="<%= @user.photo %>">
+        <span class="material-icons">list</span>
+      </div>
+      <div class="username-name">
+        <span><%= @user.fullname%></span>
+        <span>@<%= @user.username %></span>
+      </div>
+    </div>
+    <div class="tweets-follows">
+      <div class="section">
+        <span><%= @user.opinion_count %></span>
+        <span>Tweets</span>
+      </div>
+      <div class="line"></div>
+      <div class="section">
+        <span><%= @user.count_follower %></span>
+        <span>Following</span>
+      </div>
+      <div class="line"></div>
+      <div class="section">
+        <span><%= @user.count_followed %></span>
+        <span>Followers</span>
+      </div>
+    </div>
+    <div class="followed_by">
+      <span>FOLLOWED BY</span>
+        <% @user.user_followers.each do |followers| %>
+          <div class="follower-det">
+            <img class="profile-photo" src="<%= followers.photo %>">
+            <div class="follower-name">
+              <%= link_to followers.fullname, user_path(followers.id) %></a>
+              <a>@<%= followers.username %><a>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
