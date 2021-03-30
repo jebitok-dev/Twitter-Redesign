@@ -1,0 +1,59 @@
+<article class="panel">
+        <div class="sidenav is-narrow">
+            <div class="panel-block is-block">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-64x64">
+                            <%= gravatar_image_tag(current_user.username, size: 64, alt: current_user.username) %>
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong><%= current_user.fullname %></strong><br />
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <div class="level-item has-centered-text">
+                    <div>
+                        <p class="heading"><%= current_user.count_followers %> <br><small>Following</p>
+                    </div>
+                    <div>
+                        <p class="heading"><%= current_user.count_following %> <br><small>Followers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content margin-bottom">
+                <p>
+                    <strong><h2><a href="#" class="fa fa-home"><%= link_to "Home", home_path %></a></h2></strong><br />
+                </p>
+            
+                <p>
+                    <strong><h2><a href="#" class="fa"><%= link_to "@ Connect", user_path(current_user.id) %></a></h2></strong><br />
+                </p>
+                <p>
+                    <strong><h2><a href="#" class="fa"># Discover</a></h2></strong><br />
+                </p>
+                <p>
+                    <strong><h2><a href="#" class="fa fa-user"><%= link_to "Profile", user_path(current_user.id) %></a></h2></strong><br />
+                </p>
+                <p>
+                    <strong><h2><a href="#" class="fa fa-pie-chart">Statistics</a></h2></strong><br />
+                </p>
+            </div>
+        </div>
+        <div class="top-bar is-info">
+            <div id="navbarExample" class="navbar-menu">
+                <div class='navbar-end'>
+                    <div class="field is-grouped">
+                        <span class="control space"><a href="#" class="fa fa-pencil"></a></span>
+                        <span class="control space"><a href="#" class="fa fa-envelope"></a></span>
+                        <span class="control space"><a href="#" class="fa fa-search"></a></span>
+                        <span class="control space"><a href="#" class="fa fa-cog"></a></span>
+                        <a><%= link_to "Logout", logout_path, method: 'DELETE' %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</article>

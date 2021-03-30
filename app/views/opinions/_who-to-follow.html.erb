@@ -1,57 +1,21 @@
 <div class="column is-one-quarter">
     <nav class="panel">
         <p class="panel-heading">Who to Follow</p>
-    
-    <div class="panel-block">
-        <article class="media">
-            <div class="media-left">
-                <figure class="image is-32x32">
-                    <%= gravatar_image_tag(current_user.username, size: 32, alt: current_user.fullname) %>
-                </figure>
-            </div>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong>Zumba</strong>
-                        <small>@zumba</small>
-                    </p>
+        <div class="panel-block">
+            <article class="media">
+                <% current_user.not_followed.each do |f|  %>
+                <div class="media-left">
+                    <figure class="image is-32x32">
+                        <%= gravatar_image_tag(current_user.username, size: 32, alt: current_user.fullname) %>
+                    </figure>
                 </div>
-            </div>
-        </article>
-    </div>
-    <div class="panel-block">
-        <article class="media">
-            <div class="media-left">
-                <figure class="image is-32x32">
-                    <%= gravatar_image_tag(current_user.username, size: 32, alt: current_user.fullname) %>
-                </figure>
-            </div>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong>Zumba</strong>
-                        <small>@zumba</small>
-                    </p>
+                <div class="media-content">
+                    <div class="content">
+                        <%= link_to f.username, user_path(f.id) %>
+                        <%= f.fullname %>
+                    </div>
                 </div>
-            </div>
-        </article>
-    </div>
-    <div class="panel-block">
-        <article class="media">
-            <div class="media-left">
-                <figure class="image is-32x32">
-                    <%= gravatar_image_tag(current_user.username, size: 32, alt: current_user.fullname) %>
-                </figure>
-            </div>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong>Zumba</strong>
-                        <small>@zumba</small>
-                    </p>
-                </div>
-            </div>
-        </article>
-    </div>
+            </article>
+        </div>
     </nav>
 </div> 

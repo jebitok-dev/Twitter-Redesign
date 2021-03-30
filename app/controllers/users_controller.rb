@@ -17,8 +17,13 @@ class UsersController < ApplicationController
 end
 
 def show
-  @user = User.find(params[:id])
+  @user = User.includes(:user_followers).includes(:user_followings).find(params[:id])
   @opinions = @user.opinions.order('created_at DESC').limit(5)
+end
+
+def follow_user
+  current_user.follow_user(params[:id])
+  redirect_to user_path(params[:id])
 end
 
 private

@@ -3,7 +3,6 @@ class OpinionsController < ApplicationController
 
   def index
     @opinion = Opinion.new
-    @opinions = Opinion.all.order('created_at DESC')
   end
 
   def create
@@ -12,6 +11,8 @@ class OpinionsController < ApplicationController
 
     if @opinion.save
       flash[:info] = 'The opinion was created successfully.'
+      current_user.opinion_count += 1
+      current_user.save
       redirect_to root_path
     else
       flash[:info] = @opinions.errors.full_messages

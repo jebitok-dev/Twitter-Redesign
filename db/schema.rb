@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_074155) do
+ActiveRecord::Schema.define(version: 2021_03_30_123352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2021_03_30_074155) do
     t.datetime "createdAt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "count_followers"
+    t.integer "count_following"
+    t.integer "opinion_count"
   end
 
 end
