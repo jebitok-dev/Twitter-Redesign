@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  def self.all_users(user_id)
-    User.where('id != ?', user_id)
-  end
+  # def self.all_users(user_id)
+  #   User.where('id != ?', user_id)
+  # end
 
   def not_following
     User.all.where.not(id: user_followings.select(:id)).where.not(id: id).order(created_at: :desc)
@@ -23,7 +23,7 @@ class User < ApplicationRecord
     @user.count_following += 1
     self.count_follower += 1
     @user.save
-    self.save
+    save
   end
 
   def already_follow?(user_id)
