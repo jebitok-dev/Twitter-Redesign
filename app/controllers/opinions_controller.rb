@@ -6,29 +6,32 @@ class OpinionsController < ApplicationController
   end
 
   def create
-    @opinion = Opinion.new(opinion_params)
+    @opinion = Opinion.new(opinion_param)
     @opinion.author_id = current_user.id
 
     if @opinion.save
       flash[:info] = 'The opinion was created successfully.'
       current_user.opinion_count += 1
       current_user.save
-      redirect_to root_path
+      redirect_to home_path
     else
       flash[:info] = @opinions.errors.full_messages
-      render 'index'
+      render 'show'
     end
   end
 
   def show
     @opinion = Opinion.find(params[:id])
-    @users = User.all
+  end
+
+  def require_login
+    redirect_to login_path unless current_user
   end
 
   private
 
   # Only allow a list of trusted parameters through.
-  def opinion_params
+  def opinion_param
     params.require(:opinion).permit(:author_id, :text, :createdAt)
   end
 end

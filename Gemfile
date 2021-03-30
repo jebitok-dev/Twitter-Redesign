@@ -12,6 +12,10 @@ gem 'bulma-rails', '~> 0.9.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'puma', '~> 5.0'
 gem 'simple_form'
+gem 'aws-sdk'
+gem 'aws-s3-multi-region'
+gem 'shoryuken'
+gem 'dotenv-rails', :groups => [:development, :test]
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

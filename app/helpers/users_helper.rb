@@ -1,7 +1,7 @@
 module UsersHelper
   def attach_files(s3_service)
-    bucket_path_photo = "brenda/#{File.basename(params[:user][:photo].original_filename)}"
-    bucket_path_coverimage = "brenda/#{File.basename(params[:user][:coverimage].original_filename)}"
+    bucket_path_photo = "jakes/#{File.basename(params[:user][:photo].original_filename)}"
+    bucket_path_coverimage = "jakes/#{File.basename(params[:user][:coverimage].original_filename)}"
 
     s3_file_photo = s3_service.bucket('ror-capstone').object(bucket_path_photo)
     s3_file_coverimage = s3_service.bucket('ror-capstone').object(bucket_path_coverimage)
