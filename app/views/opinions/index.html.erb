@@ -1,72 +1,39 @@
-<section class="section">
-  <div class="container">
-    <div class="column is-half">
-        <% if logged_in? %>
-          <article class="media box">
-              <figure class="media-left">
-                  <p class="image is-64x64">
-                      <%= gravatar_image_tag(current_user.username, size: 64, alt: current_user.username) %>
-                  </p>
-              </figure>
-              <div class="media-content">
-                  <%= render 'opinions/form' %>
-              </div>
-          </article>
+ <div class="home-user">
+  <div class="middle-section container">
+    <div class="tweet-section">
+      <h4>Opiniate SOMETHING:</h4>
+      <div>
+        <%= form_for @opinion do |opinion| %>
+          <%= opinion.text_field :text, class:"tweet", id:"text"%>
         <% end %>
-      <% @opinions.each do | opinion | %>
-        <div class="box">
-            <article class="media">
-                <div class="media-left">
-                    <figure class="image is-64x64">
-                        <%= gravatar_image_tag(opinion.author.username, size: 64, alt: opinion.author.fullname) %>
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <div class="content">
-                        <strong><%= opinion.author.fullname %></strong><br />
-                        <small><%= opinion.author.username %></small><br />
-                        <p><%= opinion.text %></p>
-                    </div>
-                    <% if logged_in? %>     
-                    <nav class="level">
-                        <div class="level-left is-mobile">
-                            <%= link_to opinion, class: "level-item" do %>
-                                <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                            <% end %>
-                            <%= link_to edit_opinion_path(opinion), class: "level-item" do %>
-                                <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                            <% end %>
-                            <%= link_to opinion, method: :delete, data: { confirm: "Are you sure you want to delete this opinion? "} do %>
-                                <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                            <% end %>
-                        </div>
-                    </nav>
-                    <% end %>
-                </div>
-            </article>
+        <input type="submit" id="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
+      </div>
+    </div>
+    <div class="new-tweets">
+      <h4><%= Opinion.count %> NEW OpinionS</h4>
+      <% Opinion.newsfeed_opinions.each do |opinions|%>
+        <div class="user-opinions">
+          <img src="<%= opinions.author.photo %>">
+          <div class="user-details"> 
+            <h5><%= link_to opinions.author.username, user_path(opinions.author.id) %></h5>
+            <span><%= opinions.text %></span>
+          </div>
         </div>
       <% end %>
     </div>
-    <div class="column is-one-quarter">
-      <nav class="panel">
-          <p class="panel-heading">Who to Follow</p>
-          <div class="panel-block">
-              <article class="media">
-                  <% current_user.not_followed.each do |f|  %>
-                  <div class="media-left">
-                      <figure class="image is-32x32">
-                          <%= gravatar_image_tag(current_user.username, size: 32, alt: current_user.fullname) %>
-                      </figure>
-                  </div>
-                  <div class="media-content">
-                      <div class="content">
-                          <%= link_to f.username, user_path(f.id) %>
-                          <%= f.fullname %>
-                      </div>
-                  </div>
-              </article>
-          </div>
-      </nav>
-    </div> 
   </div>
-</section>
+  <div class="rightbar-home">
+    <h4>WHO TO FOLLOW</h4>
+    <% current_user.not_followed.each do |f|  %>
+      <div class="user-section">
+        <div class="user-photo">
+          <img class="photo" src="<%= f.photo %>">
+        </div>
+        <div class="user-details"%>
+          <%= link_to f.username, user_path(f.id) %>
+          <%= f.fullname %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

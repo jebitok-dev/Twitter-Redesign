@@ -1,11 +1,11 @@
 <div class="user-section">
   <div class="middle-section container">
-    <img class="cover-img" src="<%= @user.coverimage %>">
+    <img class="cover-img" src="<%= @user.coverImage %>">
     <div class="new-tweets">
       <h4>ALL TWEETS</h4>
       <% @user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
         <div class="user-det">
-          <img class="user-photo" src="<%= @user.photo %>">
+          <img class="user-photo" src="<%= @user.profilephoto %>">
           <div class="user-name">
             <span><%= @user.username %></span>
             <span><%= opinion.text%></span>
