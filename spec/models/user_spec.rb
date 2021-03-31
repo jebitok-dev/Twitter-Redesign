@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user1) { User.new(username: 'user1', fullname:'name1',
-                        photo: 'link', coverimage: 'link') }
-  let(:user2) { User.new(username: 'user2', fullname:'name2',
-                        photo: 'link', coverimage: 'link') }
+  let(:user1) do
+    User.new(username: 'user1', fullname: 'name1',
+             photo: 'link', coverimage: 'link')
+  end
+  let(:user2) do
+    User.new(username: 'user2', fullname: 'name2',
+             photo: 'link', coverimage: 'link')
+  end
   describe 'validates user attributes' do
     it 'validates if the user is valid' do
       expect(user1.valid?).to eql(true)

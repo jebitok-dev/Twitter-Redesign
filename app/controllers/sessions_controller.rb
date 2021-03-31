@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       login(@user.id)
       redirect_to home_path
     else
-      flash.now[:alert] = 'There was something wrong with your login information'
+      flash.now[:message] = 'There was something wrong with your login information'
       render 'new'
     end
   end

@@ -15,11 +15,11 @@ gem 'bootstrap-sass'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'foreman'
-gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'paperclip'
 gem 'puma', '~> 5.0'
 gem 'shoryuken'
+gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 gem 'simple_form'
 group :developement, :test do
   gem 'guard'
@@ -63,7 +63,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  gem 'rspec-rails', ">= 3.9.0"
+  gem 'rspec-rails', '>= 3.9.0'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'

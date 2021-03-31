@@ -1,5 +1,5 @@
 <div class="edit">
-  <img class="image" src="<%= current_user.profilephoto %>">
+  <img class="image" src="<%= current_user.photo %>">
   <%= form_for @user do |user| %>
     <div class="edit-path">
       <%= flash[:success] %>
@@ -17,8 +17,8 @@
           <%= user.text_field :fullname, placeholder:"Full name", class:"username-field"%>
         </div>
         <div class="form-group">
-          <%= user.label :profilephoto, "Profile photo:"%>
-          <%= user.file_field :profilephoto %>
+          <%= user.label :photo, "Profile photo:"%>
+          <%= user.file_field :photo %>
         </div>
         <div class="form-group">
           <%= user.label :coverimage, "Cover Image:"%>

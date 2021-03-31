@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Opinion, type: :model do
-  let(:user1) { User.create(username: 'user1', fullname:'name1',
-                        photo: 'link', coverimage: 'link') }
+  let(:user1) do
+    User.create(username: 'user1', fullname: 'name1',
+                photo: 'link', coverimage: 'link')
+  end
 
-  let(:opinion1) { Opinion.create(author_id: user1.id, text:'tweet1') }
+  let(:opinion1) { Opinion.create(author_id: user1.id, text: 'tweet1') }
 
   describe 'validates user attributes' do
     it 'validates if the opinion is valid' do

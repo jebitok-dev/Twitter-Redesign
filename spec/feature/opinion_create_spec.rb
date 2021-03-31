@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 feature 'User login the app' do
-  let(:user) { User.create(username: 'user1', fullname:'name1',
-                        photo: 'link', coverimage: 'link') }
+  let(:user) do
+    User.create(username: 'user1', fullname: 'name1',
+                photo: 'link', coverimage: 'link')
+  end
 
   scenario 'the user posts in the home page' do
     visit login_path

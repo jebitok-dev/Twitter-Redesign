@@ -24,7 +24,7 @@
           <% else %>
             <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
         <% end %>
-        <img class="profile-photo" src="<%= @user.profilephoto %>">
+        <img class="profile-photo" src="<%= @user.photo %>">
         <span class="material-icons">list</span>
       </div>
       <div class="username-name">
@@ -44,7 +44,7 @@
       </div>
       <div class="line"></div>
       <div class="section">
-        <span><%= @user.count_followed %></span>
+        <span><%= @user.count_following %></span>
         <span>Followers</span>
       </div>
     </div>
