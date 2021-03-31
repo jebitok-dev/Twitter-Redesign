@@ -1,45 +1,39 @@
-<div class="login-cover text-center">
-  <div class="twitter-logo">
-      <i class="fab fa-twitter fa-3x"></i>
-  </div>
-  <h3>Sign Up to Twitter</h3>
-</div>
-<%= form_for (@user), :url => users_path, :html => {class: "text-center login-form"} do |f| %>
-  <% if flash[:error_messages]%>
+<div class="login-background">
+  <div class="login">
+    <div class="image">
+    </div>
+    <%= form_for @user do |user| %>
+      <div class="path">
+      <% if flash[:error_messages]%>
         <% flash[:error_messages].each do |errormessage|%>
           <%= errormessage %><br>
         <% end %>
-  <% end %>
-  <div class="form-label">
-    <%= f.label :Username, class: "username-label" %>
+      <% end %>
+        <div>
+          <span class="material-icons" id="login-icon">face</span>
+          <h3>Sign up!</h3>
+        </div>
+        <div>
+          <span class="material-icons">person</span>
+          <%= user.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
+        </div>
+        <div>
+          <span class="material-icons">create</span>
+          <%= user.text_field :fullname, placeholder:"Full name", class:"username-field",  id:"fullname"%>
+        </div>
+        <div>
+          <h5>Add profile photo: </h5>
+          <%= user.file_field :profilephoto, id:"photo" %>
+        </div>
+        <div>
+          <h5>Add cover image: </h5>
+          <%= user.file_field :coverImage, id:"coverimage" %>
+        </div>
+        <div>
+          <span>Already have an account? <%= link_to "Login", login_path %></span>
+          <%= user.submit "Sign up", class:'btn', id:"signup"%>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="form-input">
-    <%= f.text_field :username, class: "username-input", placeholder: "Enter Username" %>
-  </div>
-
-  <div class="form-label">
-    <%= f.label :Fullname, class: "Fullname-label" %>
-  </div>
-  <div class="form-input">
-    <%= f.text_field :fullname, class: "Fullname-input", placeholder: "Enter Fullname" %>
-  </div>
-
-  <div class="form-label">
-    <%= f.label :Photo, class: "Photo-label" %>
-  </div>
-  <div class="form-input">
-    <%= f.file_field :profilephoto, class: "Photo-input text-center" %>
-  </div>
-
-  <div class="form-label">
-    <%= f.label :CoverImage, class: "cover-image-label" %>
-  </div>
-  <div class="form-input">
-    <%= f.file_field :coverImage, class: "cover-image-input text-center" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit "Sign Up",  class: "btn btn-primary signup-btn"%>    
-  </div>
-  <%= link_to "Login in to Twitter", login_path %>
-<% end %>
+</div>

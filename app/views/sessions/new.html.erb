@@ -1,19 +1,22 @@
-<section class="section">
+<section class="login-background">
   <div class="login">
     <div class="image">
     </div>
-    <h3>Login to your account</h3>
     <%= simple_form_for :session, url:login_path do |f| %>
+      <div class="path">
       <%= flash[:message] %>
-      <div class="field">
+      <div>
+        <span class="material-icons" id="login-icon">face</span>
+        <h3>Login to your account</h3>
+      </div>
         <div class="control">
+          <span class="material-icons">person</span>
           <%= f.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
         </div>
         <div class="control">
+          <span>Dont have an account? <%= link_to "Sign up", signup_path %></span>
           <%= f.submit "Login", class:'btn is-info is-medium', id:"login" %>
         </div>
-        <span>Don't have an account? <%= link_to "Sign up", signup_path %></span>
-      </div>
     <% end %>
   </div>
 </section>

@@ -2,7 +2,7 @@
   <div class="middle-section container">
     <img class="cover-img" src="<%= @user.coverImage %>">
     <div class="new-tweets">
-      <h4>ALL TWEETS</h4>
+      <h4>ALL OPINIONS</h4>
       <% @user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
         <div class="user-det">
           <img class="user-photo" src="<%= @user.profilephoto %>">
@@ -24,7 +24,7 @@
           <% else %>
             <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
         <% end %>
-        <img class="profile-photo" src="<%= @user.photo %>">
+        <img class="profile-photo" src="<%= @user.profilephoto %>">
         <span class="material-icons">list</span>
       </div>
       <div class="username-name">

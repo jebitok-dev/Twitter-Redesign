@@ -1,6 +1,6 @@
 <div class="sidebar d-flex column">
     <div class="profile-user">
-        <img class="image" src="<%= current_user.photo %>">
+        <img class="image" src="<%= current_user.profilephoto %>">
         <h3><%= current_user.username %></h3>
     </div>
     <div class="profile-follows">
@@ -26,10 +26,7 @@
     </div>
     </div>
         <div class="top-bar">
-            <%# <%= image_tag "twitter-icon.png" %>
-            <figure class="image is-64x64">
-                <%= gravatar_image_tag(current_user.username, size: 64, alt: current_user.username) %>
-            </figure>
+            <%= image_tag "twitter-icon.png" %>
             <div>
             <%= link_to edit_user_path(current_user.id) do%>
                 <span class="material-icons">create</span> 

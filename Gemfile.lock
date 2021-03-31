@@ -1136,6 +1136,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    climate_control (0.2.0)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     dotenv (2.7.6)
@@ -1144,6 +1145,7 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     ffi (1.15.0)
+    foreman (0.87.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
@@ -1177,6 +1179,12 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
+    paperclip (6.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      mime-types
+      mimemagic (~> 0.3.0)
+      terrapin (~> 0.6.0)
     pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.2.2)
@@ -1250,6 +1258,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    terrapin (0.6.0)
+      climate_control (>= 0.0.3, < 1.0)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -1291,9 +1301,11 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   dotenv-rails
+  foreman
   gravatar_image_tag (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  paperclip
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
