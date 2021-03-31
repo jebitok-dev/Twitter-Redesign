@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :fullname, presence: true, length: { maximum: 60 }
-  # validates :photo, presence: true
-  # validates :coverimage, presence: true
+  validates :photo, presence: true
+  validates :coverimage, presence: true
   before_save { username.downcase! }
 
   has_many :created_opinions, foreign_key: :author_id, class_name: 'Opinion', dependent: :destroy, inverse_of: 'author'
