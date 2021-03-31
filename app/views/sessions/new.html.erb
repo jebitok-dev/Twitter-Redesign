@@ -9,13 +9,13 @@
         <span class="material-icons" id="login-icon">face</span>
         <h3>Login to your account</h3>
       </div>
-        <div class="control">
+        <div>
           <span class="material-icons">person</span>
           <%= f.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
         </div>
-        <div class="control">
+        <div>
           <span>Dont have an account? <%= link_to "Sign up", signup_path %></span>
-          <%= f.submit "Login", class:'btn is-info is-medium', id:"login" %>
+          <%= f.submit "Login", class:'btn', id:"login" %>
         </div>
     <% end %>
   </div>

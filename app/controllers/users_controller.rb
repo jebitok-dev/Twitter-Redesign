@@ -14,8 +14,8 @@ class UsersController < ApplicationController
       redirect_to home_path
       login(@user.id)
     else
-      flash[:info] = @user.errors.full_messages
-      render :new
+      flash.now[:error_messages] = @user.errors.full_messages
+      render 'new'
     end
   end
 end

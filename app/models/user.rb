@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :fullname, presence: true, length: { maximum: 60 }
-  validates :photo, presence: true
-  validates :coverimage, presence: true
+  # validates :photo, presence: true
+  # validates :coverimage, presence: true
   before_save { username.downcase! }
 
   has_many :created_opinions, foreign_key: :author_id, class_name: 'Opinion', dependent: :destroy, inverse_of: 'author'
@@ -32,5 +32,9 @@ class User < ApplicationRecord
 
   def already_follow?(user_id)
     true if Follow.find_by(follower_id: id, following_id: user_id)
+  end
+
+  def get_image_url
+    url_for(self.image)
   end
 end
