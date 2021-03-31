@@ -1,6 +1,6 @@
 <div class="user-section">
   <div class="middle-section container">
-    <img class="cover-img" src="<%= @user.coverImage %>">
+    <img class="cover-img" src="<%= @user.coverimage %>">
     <div class="new-tweets">
       <h4>ALL OPINIONS</h4>
       <% @user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>

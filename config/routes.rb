@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/home', to: 'opinions#index'
   get '/signup', to: 'users#new'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#delete'
+  delete '/logout', to: 'sessions#destroy'
   get '/follow_user/:id' , to: 'users#follow_user', as: :follow_user
 
   resources :users, only: [:new, :create, :show, :edit, :update]

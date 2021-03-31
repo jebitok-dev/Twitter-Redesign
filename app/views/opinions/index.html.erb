@@ -1,7 +1,7 @@
  <div class="home-user">
   <div class="middle-section container">
     <div class="tweet-section">
-      <h4>Opiniate SOMETHING:</h4>
+      <h4>What's Happening?</h4>
       <div>
         <%= form_for @opinion do |opinion| %>
           <%= opinion.text_field :text, class:"tweet", id:"text"%>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="new-tweets">
-      <h4><%= Opinion.count %> NEW OpinionS</h4>
+      <h4><%= Opinion.count %> NEW OPINIONS</h4>
       <% Opinion.newsfeed_opinions.each do |opinions|%>
         <div class="user-opinions">
           <img src="<%= opinions.author.photo %>">

@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_123352) do
     t.string "username"
     t.string "fullname"
     t.string "photo"
-    t.string "coverImage"
+    t.string "coverimage"
     t.datetime "createdAt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
