@@ -10,12 +10,10 @@ class OpinionsController < ApplicationController
     @opinion.author_id = current_user.id
 
     if @opinion.save
-      flash[:info] = 'The opinion was created successfully.'
       current_user.opinion_count += 1
       current_user.save
       redirect_to home_path
     else
-      flash[:info] = @opinions.errors.full_messages
       render 'show'
     end
   end

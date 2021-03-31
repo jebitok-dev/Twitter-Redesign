@@ -24,7 +24,7 @@
   </div>
   <div class="rightbar-home">
     <h4>WHO TO FOLLOW</h4>
-    <% current_user.not_followed.each do |f|  %>
+    <% current_user.not_following.each do |f|  %>
       <div class="user-section">
         <div class="user-photo">
           <img class="photo" src="<%= f.photo %>">

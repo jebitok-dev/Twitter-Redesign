@@ -8,16 +8,18 @@ gem 'rails', '~> 6.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
-gem 'bulma-rails', '~> 0.9.1'
-gem 'gravatar_image_tag', '~> 1.2'
-gem 'puma', '~> 5.0'
-gem 'simple_form'
-gem 'foreman'
-gem 'aws-sdk'
-gem 'paperclip'
+gem 'autoprefixer-rails'
 gem 'aws-s3-multi-region'
+gem 'aws-sdk'
+gem 'bootstrap-sass'
+gem 'bulma-rails', '~> 0.9.1'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'foreman'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'paperclip'
+gem 'puma', '~> 5.0'
 gem 'shoryuken'
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'simple_form'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -48,7 +50,7 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rack-mini-profiler'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
