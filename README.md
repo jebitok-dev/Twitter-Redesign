@@ -1,8 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Exclusive-Clubhouse(Members-Only)
-
-<!-- ![screenshot](./app/assets/images/clubhse1.png) -->
+# Twitter-Redesign
 
 This project puts your knowledge of ruby on rails module into practice through the Twitter-Redesign and app that allows user to login, view homepage/tweets, suggestion on who to follow, access their user profile and those of others, and creating tweets.
 
@@ -10,9 +8,10 @@ This project puts your knowledge of ruby on rails module into practice through t
 
 - Ruby -v 2.7.0
 - Rails -v 6.1.1
-- Live-Reloader
-- Bulma(CSS)
+- Guard
+- Bootstrap
 - PostgreSQL
+- RSPEC
 
 ## Getting Started
 
@@ -31,9 +30,12 @@ To get this project up and running locally, you must already have ruby and rails
 - $ rails db:migrate
 ```
 
-### Run
+### Run Tests
 
-- `$ rails s `
+- `$ rspec spec/models/user_spec.rb `
+- `$ rspec spec/models/opinion_spec.rb`
+- `$ rspec spec/feature/user_login_spec.rb`
+- `$ rspec spec/feature/opinion_create_spec.rb`
 
 ## Author
 
@@ -76,5 +78,6 @@ Finally, if you've read this far, don't forget to give this repo a ⭐️. They'
 ## Acknowledgments
 
 - [Microverse](https://microverse.org).
+- Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
 
 <!-- ## 📝 License -->
