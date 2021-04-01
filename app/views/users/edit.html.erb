@@ -1,0 +1,29 @@
+<div class="edit">
+  <img class="image" src="<%= current_user.photo %>">
+  <%= form_for @user do |user| %>
+    <div class="edit-path">
+      <%= flash[:success] %>
+      <% if flash[:message_edit]%>
+        <% flash[:message_edit].each do |message|%>
+          <%= message %><br>
+        <% end %>
+      <% end %>
+        <div class="form-group">
+          <%= user.label :username, "Username:"%>
+          <%= user.text_field :username, placeholder:"Username", class:"username-field"%>
+        </div>
+        <div class="form-group">
+          <%= user.label :fullname, "Full name:"%>
+          <%= user.text_field :fullname, placeholder:"Full name", class:"username-field"%>
+        </div>
+        <div class="form-group">
+          <%= user.label :photo, "Profile photo:"%>
+          <%= user.file_field :photo %>
+        </div>
+        <div class="form-group">
+          <%= user.label :coverimage, "Cover Image:"%>
+          <%= user.file_field :coverimage %>
+        </div>
+          <%= user.submit "Update info", class:'btn' %>
+    </div>
+  <% end %>

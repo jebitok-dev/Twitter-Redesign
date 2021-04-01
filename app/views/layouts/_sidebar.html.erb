@@ -1,0 +1,39 @@
+<div class="sidebar d-flex column">
+    <div class="profile-user">
+        <img class="image" src="<%= current_user.photo %>">
+        <h3><%= current_user.username %></h3>
+    </div>
+    <div class="profile-follows">
+        <div class="follows">
+            <h4><%= current_user.count_followers %></h4>
+            <p>Following</p>
+        </div>
+        <div class="divisor"></div>
+        <div class="follows">
+            <h4><%= current_user.count_following %></h4>
+            <p>Followers</p>
+        </div>
+    </div>
+    <div class="profile-links">
+        <div>
+            <span class="material-icons">home</span>
+            <%= link_to "HOME", home_path %>
+        </div>
+        <div>
+            <span class="material-icons">person</span>
+            <%= link_to "PROFILE", user_path(current_user.id) %>
+        </div>
+    </div>
+    </div>
+        <div class="top-bar">
+            <%= image_tag "twitter-icon.png" %>
+            <div>
+            <%= link_to edit_user_path(current_user.id) do%>
+                <span class="material-icons">create</span> 
+            <% end %>
+            <span class="material-icons">local_post_office</span>
+            <span class="material-icons">search</span>
+            <span class="material-icons">settings</span>
+            <a><%= link_to "Logout", logout_path, method: 'DELETE' %></a>
+        </div>
+</div>

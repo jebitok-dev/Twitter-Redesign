@@ -1,0 +1,22 @@
+<section class="login-background">
+  <div class="login">
+    <div class="image">
+    </div>
+    <%= form_for :session, url:login_path do |f| %>
+      <div class="path">
+      <%= flash[:message] %>
+      <div>
+        <span class="material-icons" id="login-icon">face</span>
+        <h3>Login to your account</h3>
+      </div>
+        <div>
+          <span class="material-icons">person</span>
+          <%= f.text_field :username, placeholder:"Username", class:"username-field", id:"username"%>
+        </div>
+        <div>
+          <span>Dont have an account? <%= link_to "Sign up", signup_path %></span>
+          <%= f.submit "Login", class:'btn', id:"login" %>
+        </div>
+    <% end %>
+  </div>
+</section>
