@@ -5,15 +5,21 @@
       <div>
         <%= form_for @opinion do |opinion| %>
           <%= opinion.text_field :text, class:"tweet", id:"text"%>
+          <%= opinion.submit "Tweet", class: "btn text-btn" %>
         <% end %>
-        <input type="submit" id="submit", class='btn', style="position: absolute; left: -9999px; width: 1px; height: 1px;">
       </div>
     </div>
     <div class="new-tweets">
       <h4><%= Opinion.count %> NEW OPINIONS</h4>
       <% Opinion.newsfeed_opinions.each do |opinions|%>
         <div class="user-opinions">
-          <img src="<%= opinions.author.photo %>">
+           <%= link_to user_path(current_user), class: 'user' do %>
+              <% unless current_user[:Photo].nil? %>
+                <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+              <% else %>
+                <%= gravatar_image_tag(current_user.username, size: 32) %>
+              <% end %>
+            <% end %>
           <div class="user-details"> 
             <h5><%= link_to opinions.author.username, user_path(opinions.author.id) %></h5>
             <span><%= opinions.text %></span>
@@ -26,12 +32,18 @@
     <h4>WHO TO FOLLOW</h4>
     <% current_user.not_following.each do |f|  %>
       <div class="user-section">
-        <div class="user-photo">
-          <img class="photo" src="<%= f.photo %>">
-        </div>
-        <div class="user-details"%>
-          <%= link_to f.username, user_path(f.id) %>
+        <div class="picture">
+              <%= link_to user_path(current_user), class: 'user' do %>
+                <% unless current_user[:Photo].nil? %>
+                  <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+                <% else %>
+                  <%= gravatar_image_tag(current_user.username, size: 32) %>
+                <% end %>
+              <% end %>
+        </div>  
+        <div class="user-details">
           <%= f.fullname %>
+          <%= link_to f.username, user_path(f.id) %>
         </div>
       </div>
     <% end %>
