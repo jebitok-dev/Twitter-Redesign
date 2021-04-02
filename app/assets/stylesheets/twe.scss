@@ -47,6 +47,15 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.text-btn {
+  padding: 0.2rem;
+  color: white;
+  background-color: #50a4e2;
+  // border-radius: 5px;
+  border: none;
+  position: absolute;
+}
+
 .login {
   background-color: $signin-background;
   color: $border-following;

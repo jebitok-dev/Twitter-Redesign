@@ -1,13 +1,24 @@
 <div class="user-section">
   <div class="middle-section container">
-    <img class="cover-img" src="<%= @user.coverimage %>">
+    <%# <img class="cover-img" src="<%= @user.coverimage %>
+    <% unless current_user[:coverimage].nil? %>
+          <%= gravatar_image_tag(current_user.coverimage, class: 'cover-img') %>
+        <% else %>
+          <img src="https://source.unsplash.com/800x200" alt="">
+    <% end %>
     <div class="new-tweets">
       <h4>ALL OPINIONS</h4>
-      <% @user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
+      <% current_user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
         <div class="user-det">
-          <img class="user-photo" src="<%= @user.profilephoto %>">
+          <%= link_to user_path(current_user), class: 'user' do %>
+            <% unless current_user[:Photo].nil? %>
+              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+            <% else %>
+              <%= gravatar_image_tag(current_user.username, size: 32) %>
+            <% end %>
+          <% end %>           
           <div class="user-name">
-            <span><%= @user.username %></span>
+            <span><%= current_user.username %></span>
             <span><%= opinion.text%></span>
           </div>
         </div>
@@ -17,40 +28,46 @@
   <div class="rightbar-user">
     <div class="user-det">
       <div class="photo-adduser">
-        <% if !current_user.already_follow?(@user.id) && @user.id!=current_user.id%>
-          <%= link_to follow_user_path(@user.id) do %>
+        <% if !current_user.already_follow?(current_user.id) && current_user.id!=current_user.id%>
+          <%= link_to follow_user_path(current_user.id) do %>
             <span class="material-icons">add_circle_outline</span>
           <% end %>
           <% else %>
             <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
         <% end %>
-        <img class="profile-photo" src="<%= @user.photo %>">
+        <%= link_to user_path(current_user), class: 'user' do %>
+            <% unless current_user[:Photo].nil? %>
+              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+            <% else %>
+              <%= gravatar_image_tag(current_user.username, size: 32) %>
+            <% end %>
+        <% end %>        
         <span class="material-icons">list</span>
       </div>
       <div class="username-name">
-        <span><%= @user.fullname%></span>
-        <span>@<%= @user.username %></span>
+        <span><%= current_user.fullname%></span>
+        <span>@<%= current_user.username %></span>
       </div>
     </div>
     <div class="tweets-follows">
       <div class="section">
-        <span><%= @user.opinion_count %></span>
+        <span><%= current_user.opinion_count %></span>
         <span>Tweets</span>
       </div>
       <div class="line"></div>
       <div class="section">
-        <span><%= @user.count_follower %></span>
+        <span><%= current_user.count_followers %></span>
         <span>Following</span>
       </div>
       <div class="line"></div>
       <div class="section">
-        <span><%= @user.count_following %></span>
+        <span><%= current_user.count_following %></span>
         <span>Followers</span>
       </div>
     </div>
     <div class="followed_by">
       <span>FOLLOWED BY</span>
-        <% @user.user_followers.each do |followers| %>
+        <% current_user.user_followers.each do |followers| %>
           <div class="follower-det">
             <img class="profile-photo" src="<%= followers.photo %>">
             <div class="follower-name">
