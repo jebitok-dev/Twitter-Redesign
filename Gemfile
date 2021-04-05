@@ -10,6 +10,7 @@ gem 'pg', '~> 1.1'
 gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'autoprefixer-rails'
+gem 'mini_racer', '~> 0.3.1'
 gem 'aws-s3-multi-region'
 gem 'aws-sdk'
 gem 'bootstrap-sass'
@@ -29,7 +30,7 @@ gem 'differ'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker',  git: 'https://github.com/rails/webpacker.git'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
