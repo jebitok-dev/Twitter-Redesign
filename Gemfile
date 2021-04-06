@@ -11,8 +11,7 @@ gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'autoprefixer-rails'
 gem 'mini_racer', '~> 0.3.1'
-gem 'aws-s3-multi-region'
-gem 'aws-sdk'
+gem 'simple-image-uploader', '~> 0.1.5'
 gem 'bootstrap-sass'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'dotenv-rails', groups: %i[development test]
