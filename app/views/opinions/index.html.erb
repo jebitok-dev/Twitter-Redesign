@@ -15,9 +15,9 @@
         <div class="user-opinions">
            <%= link_to user_path(current_user), class: 'user' do %>
               <% unless current_user[:Photo].nil? %>
-                <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+                <%= image_tag user.Photo.thumb.url, class: 'photo' %>
               <% else %>
-                <%= image_tag opinion.Author.photo.thumb.url %>
+                <%= gravatar_for user, size: 50 %>
               <% end %>
             <% end %>
           <div class="user-details"> 
@@ -35,9 +35,9 @@
         <div class="picture">
               <%= link_to user_path(current_user), class: 'user' do %>
                 <% unless current_user[:Photo].nil? %>
-                  <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+                  <%= image_tag user.Photo.thumb.url, class: 'photo' %>
                 <% else %>
-                <%= image_tag opinion.Author.Photo.thumb.url %>
+                  <%= gravatar_for user, size: 50 %>
                 <% end %>
               <% end %>
         </div>  

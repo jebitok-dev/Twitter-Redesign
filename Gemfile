@@ -10,18 +10,18 @@ gem 'pg', '~> 1.1'
 gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'autoprefixer-rails'
-gem 'mini_racer', '~> 0.3.1'
-gem 'simple-image-uploader', '~> 0.1.5'
 gem 'bootstrap-sass'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'foreman'
 gem 'gravatar_image_tag', '~> 1.2'
-gem 'paperclip'
+gem 'mini_racer', '~> 0.3.1'
 gem 'puma', '~> 5.0'
 gem 'shoryuken'
 gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 gem 'simple_form'
+gem 'simple-image-uploader', '~> 0.1.5'
+# gem 'therubyracer', '~> 0.12.3'
 group :developement, :test do
   gem 'guard'
 end
@@ -29,7 +29,7 @@ gem 'differ'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker',  git: 'https://github.com/rails/webpacker.git'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -58,7 +58,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', group: :development
 end
 
 group :test do

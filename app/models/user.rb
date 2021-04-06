@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   mount_uploader :photo, ImageUploader
   mount_uploader :coverimage, ImageUploader
-  
+
   def not_following
     User.all.where.not(id: user_followings.select(:id)).where.not(id: id).order(created_at: :desc)
   end

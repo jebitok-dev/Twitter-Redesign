@@ -11,11 +11,11 @@
       <% current_user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
         <div class="user-det">
           <%= link_to user_path(current_user), class: 'user' do %>
-            <% unless current_user[:Photo].nil? %>
-              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+            <% if current_user[:Photo].nil? %>
+              <%= gravatar_for opinion.Author, size: 50 %>
             <% else %>
-              <%= gravatar_image_tag(current_user.username, size: 32) %>
-            <% end %>
+              <%= image_tag opinion.Author.Photo.thumb.url %>
+            <% end %>  
           <% end %>           
           <div class="user-name">
             <span><%= current_user.username %></span>
@@ -37,9 +37,9 @@
         <% end %>
         <%= link_to user_path(current_user), class: 'user' do %>
             <% unless current_user[:Photo].nil? %>
-              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+              <%= image_tag @user.Photo.medium.url %>
             <% else %>
-              <%= gravatar_image_tag(current_user.username, size: 32) %>
+              <%= gravatar_for @user, size: 100 %>
             <% end %>
         <% end %>        
         <span class="material-icons">list</span>
