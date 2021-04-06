@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :followings, foreign_key: :following_id, class_name: 'Follow'
   has_many :user_followings, through: :followings, source: :following
 
+  has_many_attached :photo
+  has_many_attached :coverimage
+
   def not_following
     User.all.where.not(id: user_followings.select(:id)).where.not(id: id).order(created_at: :desc)
   end
