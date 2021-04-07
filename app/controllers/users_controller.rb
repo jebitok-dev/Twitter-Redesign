@@ -26,21 +26,6 @@ def edit
   @user = User.find(current_user.id)
 end
 
-def update
-  @user = User.find(current_user.id)
-
-  @user.username = user_param[:username]
-  @user.fullname = user_param[:fullname]
-
-  if @user.save
-    flash[:success] = 'Profile updated!'
-    redirect_to edit_user_path(current_user.id)
-  else
-    flash.now[:message_edit] = @user.errors.full_messages
-    render 'edit'
-  end
-end
-
 def follow_user
   current_user.follow_user(params[:id])
   redirect_to user_path(params[:id])

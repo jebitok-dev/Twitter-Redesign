@@ -2,7 +2,7 @@
   <div class="middle-section container">
     <%# <img class="cover-img" src="<%= @user.coverimage %>
     <% unless current_user[:coverimage].nil? %>
-          <%= gravatar_image_tag(current_user.coverimage, class: 'cover-img') %>
+          <%= image_tag @user.coverimage.standard.url, class: 'photo-hero' %>
         <% else %>
           <img src="https://source.unsplash.com/800x200" alt="">
     <% end %>
@@ -12,9 +12,10 @@
         <div class="user-det">
           <%= link_to user_path(current_user), class: 'user' do %>
             <% unless current_user[:Photo].nil? %>
-              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+               <% unless @user[:Photo].nil? %>
+              <%= image_tag @user.Photo.medium.url %>
             <% else %>
-              <%= gravatar_image_tag(current_user.username, size: 32) %>
+              <%= gravatar_for @user, size: 100 %>
             <% end %>
           <% end %>           
           <div class="user-name">
@@ -36,10 +37,10 @@
             <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
         <% end %>
         <%= link_to user_path(current_user), class: 'user' do %>
-            <% unless current_user[:Photo].nil? %>
-              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+            <% unless @user[:Photo].nil? %>
+              <%= image_tag @user.Photo.medium.url %>
             <% else %>
-              <%= gravatar_image_tag(current_user.username, size: 32) %>
+              <%= gravatar_for @user, size: 100 %>
             <% end %>
         <% end %>        
         <span class="material-icons">list</span>

@@ -3,6 +3,7 @@ class OpinionsController < ApplicationController
 
   def index
     @opinion = Opinion.new
+    @opinions = Opinion.order('created_at DESC').includes(:Author).limit(5)
   end
 
   def create
