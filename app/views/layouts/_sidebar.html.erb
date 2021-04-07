@@ -1,11 +1,11 @@
 <div class="sidebar d-flex column">
     <div class="profile-user">
         <%= link_to user_path(current_user), class: 'user' do %>
-            <% unless current_user[:Photo].nil? %>
-                <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
+            <% if current_user[:Photo].nil? %>
+                <%= gravatar_for current_user, size: 50 %>
             <% else %>
-                <%= gravatar_image_tag(current_user.username, size: 32) %>
-            <% end %>
+                <%= image_tag current_user.Photo.thumb.url %>
+            <% end %>           
         <% end %>        
         <h3><%= current_user.username %></h3>
     </div>
