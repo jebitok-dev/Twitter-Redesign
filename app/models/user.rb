@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 10 }
   validates :fullname, presence: true, length: { maximum: 60 }
-  # validates :photo, presence: true
-  # validates :coverimage, presence: true
+  validates :photo, presence: true
+  validates :coverimage, presence: true
   before_save { username.downcase! }
 
   has_many :created_opinions, foreign_key: :author_id, class_name: 'Opinion'
@@ -23,7 +23,7 @@ class User < ApplicationRecord
     @user.count_following += 1
     self.count_follower += 1
     @user.save
-    save
+    self.save
   end
 
   def already_follow?(user_id)
