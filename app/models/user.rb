@@ -6,6 +6,9 @@ class User < ApplicationRecord
   before_save { username.downcase! }
 
   has_many :created_opinions, foreign_key: :author_id, class_name: 'Opinion'
+  
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :followers, foreign_key: :follower_id, class_name: 'Follow'
   has_many :user_followers, through: :followers, source: :follower

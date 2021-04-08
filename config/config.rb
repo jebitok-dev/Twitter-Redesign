@@ -18,6 +18,12 @@ module TwitterRedesign
       end if File.exists?(dev)
     end
 
+    client = Aws::DynamoDB::Client.new(
+      region: Aws.config[:region],
+      instance_profile_credentials_timeout: 5, # defaults to 1 second
+      instance_profile_credentials_retries: 5, # defaults to 0 retries
+    )
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

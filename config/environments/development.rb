@@ -72,14 +72,15 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  # config.paperclip_defaults = {
-  #   :storage => :s3,
-  #   :s3_credentials => {
-  #     :bucket => ENV['BUCKET_NAME'],
-  #     :access_key_id => ENV['ACCESS_KEY_ID'],
-  #     :secret_access_key => ENV['SECRET_ACCESS_KEY']
-  #   }
-  # }    
+  # US West (N. California)  us-west-2   apigateway.us-west-2.amazonaws.com  HTTPS
+
+config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_region => 'us-west-2',
+  :bucket => 'production-bucket',
+  :path => '/:class/:attachment/:id_partition/:style/:filename',
+  :s3_credentials => "#{Rails.root}/config/aws.yml",
+}   
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end

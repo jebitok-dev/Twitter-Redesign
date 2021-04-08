@@ -1,12 +1,7 @@
-defaults: &defaults
-  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-  secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-test:
-  <<: *defaults
-  bucket: <%= ENV['AWS_TEST_BUCKET'] %>
 development:
-  <<: *defaults
-  bucket: <%= ENV['AWS_TEST_BUCKET'] %>
+  access_key_id: AWS_ACCESS_KEY_ID # without quotation marks
+  secret_access_key: AWS_SECRET_KEY_ID # without quotation marks
+
 production:
-  <<: *defaults
-  bucket: <%= ENV['AWS_BUCKET'] %>
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %> # get it from terminal environment
+  secret_access_key: <%= ENV["AWS_SECRET_KEY_ID"] %> # get it from terminal environment

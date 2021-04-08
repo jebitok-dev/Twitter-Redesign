@@ -11,7 +11,8 @@ gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'autoprefixer-rails'
 gem 'aws-s3-multi-region'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 3'
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap-sass'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'dotenv-rails', groups: %i[development test]
