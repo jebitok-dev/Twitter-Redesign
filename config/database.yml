@@ -18,7 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: whiteboard
+  database: whiteboards
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -61,7 +61,7 @@ test:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: whiteboard
+  database: whiteboards
   pool: 5
   timeout: 5000
   username: talk
