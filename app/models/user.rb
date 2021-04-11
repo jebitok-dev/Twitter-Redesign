@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 10 }
   validates :fullname, presence: true, length: { maximum: 60 }
-  # validates :photo, presence: true
-  # validates :coverimage, presence: true
   before_save { username.downcase! }
 
   has_many :created_opinions, foreign_key: :author_id, class_name: 'Opinion'
@@ -21,7 +19,7 @@ class User < ApplicationRecord
     @follow = Follow.create(follower_id: id, following_id: user_id)
     @user = User.find(user_id)
     @user.count_following += 1
-    self.count_follower += 1
+    self.count_followers += 1
     @user.save
     save
   end
