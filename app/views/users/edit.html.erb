@@ -16,14 +16,6 @@
           <%= user.label :fullname, "Full name:"%>
           <%= user.text_field :fullname, placeholder:"Full name", class:"username-field"%>
         </div>
-        <div class="form-group">
-          <%= user.label :photo, "Profile photo:"%>
-          <%= user.file_field :photo %>
-        </div>
-        <div class="form-group">
-          <%= user.label :coverimage, "Cover Image:"%>
-          <%= user.file_field :coverimage %>
-        </div>
           <%= user.submit "Update info", class:'btn' %>
     </div>
   <% end %>

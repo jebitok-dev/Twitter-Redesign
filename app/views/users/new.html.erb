@@ -22,14 +22,6 @@
           <%= user.text_field :fullname, placeholder:"Full name", class:"username-field",  id:"fullname"%>
         </div>
         <div>
-          <h5>Add profile photo: </h5>
-          <%= user.file_field :profilephoto, id:"photo" %>
-        </div>
-        <div>
-          <h5>Add cover image: </h5>
-          <%= user.file_field :coverimage, id:"coverimage" %>
-        </div>
-        <div>
           <span>Already have an account? <%= link_to "Login", login_path %></span>
           <%= user.submit "Sign up", class:'btn', id:"signup"%>
         </div>

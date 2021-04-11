@@ -1,22 +1,13 @@
 <div class="user-section">
   <div class="middle-section container">
-    <%# <img class="cover-img" src="<%= @user.coverimage %>
-    <% unless current_user[:coverimage].nil? %>
-          <%= gravatar_image_tag(current_user.coverimage, class: 'cover-img') %>
-        <% else %>
           <img src="https://source.unsplash.com/800x200" alt="">
-    <% end %>
     <div class="new-tweets">
       <h4>ALL OPINIONS</h4>
       <% current_user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
         <div class="user-det">
           <%= link_to user_path(current_user), class: 'user' do %>
-            <% unless current_user[:Photo].nil? %>
-              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
-            <% else %>
-              <%= gravatar_image_tag(current_user.username, size: 32) %>
-            <% end %>
-          <% end %>           
+            <%= avatar_for(current_user)%>
+          <% end %>
           <div class="user-name">
             <span><%= current_user.username %></span>
             <span><%= opinion.text%></span>
@@ -34,17 +25,11 @@
           <% end %>
           <% else %>
             <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
-        <% end %>
-        <%= link_to user_path(current_user), class: 'user' do %>
-            <% unless current_user[:Photo].nil? %>
-              <%= gravatar_image_tag user.Photo.thumb.url, class: 'photo' %>
-            <% else %>
-              <%= gravatar_image_tag(current_user.username, size: 32) %>
-            <% end %>
-        <% end %>        
+        <% end %>      
         <span class="material-icons">list</span>
       </div>
       <div class="username-name">
+        <%= avatar_for(current_user) %>
         <span><%= current_user.fullname%></span>
         <span>@<%= current_user.username %></span>
       </div>
