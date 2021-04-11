@@ -9,7 +9,6 @@ gem 'rails', '~> 6.1.3'
 gem 'pg', '~> 1.1'
 gem 'rails_12factor', group: :production
 # Use Puma as the app server
-gem 'parser'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'bulma-rails', '~> 0.9.1'
@@ -17,6 +16,7 @@ gem 'dotenv-rails', groups: %i[development test]
 gem 'foreman'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'paperclip'
+gem 'parser'
 gem 'puma', '~> 5.0'
 gem 'shoryuken'
 gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
