@@ -4,6 +4,8 @@
 
 This project puts your knowledge of ruby on rails module into practice through the Twitter-Redesign and app that allows user to login, view homepage/tweets, suggestion on who to follow, access their user profile and those of others, and creating tweets.
 
+<!-- image -->
+
 ## Built With
 
 - Ruby -v 2.7.0
