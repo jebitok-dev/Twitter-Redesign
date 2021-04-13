@@ -1,6 +1,6 @@
 <div class="user-section">
   <div class="middle-section container">
-          <img src="https://source.unsplash.com/800x200" alt="">
+      <img src="https://source.unsplash.com/800x200" alt="">
     <div class="new-tweets">
       <h4>ALL OPINIONS</h4>
       <% current_user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
@@ -11,6 +11,7 @@
           <div class="user-name">
             <span><%= current_user.username %></span>
             <span><%= opinion.text%></span>
+            <p><%= opinions.created_at.strftime("%Y/%m/%d")%></p>
           </div>
         </div>
       <% end %>

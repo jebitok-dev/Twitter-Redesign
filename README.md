@@ -4,6 +4,8 @@
 
 This project puts your knowledge of ruby on rails module into practice through the Twitter-Redesign and app that allows user to login, view homepage/tweets, suggestion on who to follow, access their user profile and those of others, and creating tweets.
 
+![screenshot](./app/assets/images/signup-twitter.png)
+
 ## Built With
 
 - Ruby -v 2.7.0
@@ -12,6 +14,13 @@ This project puts your knowledge of ruby on rails module into practice through t
 - Bootstrap
 - PostgreSQL
 - RSPEC
+
+## Live Demo
+
+[Live Demo Link](https://fierce-spire-26749.herokuapp.com/)
+[Video](https://www.loom.com/share/459aebb647ef46daab87de530ccd8970)
+
+![screenshot](./app/assets/images/profile-twitter.png)
 
 ## Getting Started
 

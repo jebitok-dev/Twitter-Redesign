@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+echo "Deploying master to production"
+
+heroku git:remote --app YOUR_APP_NAME --remote production
+git push production
+heroku run --remote production rails db:migrate

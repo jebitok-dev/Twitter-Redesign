@@ -13,13 +13,9 @@
       <h4><%= Opinion.count %> NEW OPINIONS</h4>
       <% Opinion.newsfeed_opinions.each do |opinions|%>
         <div class="user-opinions">
-           <%= link_to user_path(current_user), class: 'user' do %>
-              <%= avatar_for(current_user) %>
-            <% end %>
           <div class="user-details"> 
             <h5><%= link_to opinions.author.username, user_path(opinions.author.id) %></h5>
             <span><%= opinions.text %></span>
-            <p><%= opinions.created_at.strftime("%Y/%m/%d")%></p>
           </div>
         </div>
       <% end %>
@@ -27,10 +23,10 @@
   </div>
   <div class="rightbar-home">
     <h4>WHO TO FOLLOW</h4>
-    <% current_user.not_following.each do |f|  %>
+    <% current_user.not_following.each do |f| %>
       <div class="user-section">
         <div class="picture">
-          <%= avatar_for(current_user) %>
+          <%= avatar_for(f) %>
         </div>  
         <div class="user-details">
           <%= f.fullname %>
