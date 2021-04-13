@@ -38,6 +38,7 @@ To get this project up and running locally, you must already have ruby and rails
 - $ rails db:create
 - $ rails db:migrate
 ```
+- incase you encounter ``autoprefixer`` error add the ``gem 'mini_racer'`` tou your gemfile
 
 ### Run Tests
 
