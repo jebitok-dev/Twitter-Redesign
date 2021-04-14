@@ -17,8 +17,9 @@ This project puts your knowledge of ruby on rails module into practice through t
 
 ## Live Demo
 
-[Live Demo Link](https://fierce-spire-26749.herokuapp.com/)
-[Video](https://www.loom.com/share/459aebb647ef46daab87de530ccd8970)
+- [Live Demo Link](https://fierce-spire-26749.herokuapp.com/)
+
+- [Video](https://www.loom.com/share/459aebb647ef46daab87de530ccd8970)
 
 ![screenshot](./app/assets/images/profile-twitter.png)
 
