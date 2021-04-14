@@ -20,6 +20,7 @@ class OpinionsController < ApplicationController
 
   def show
     @opinion = Opinion.find(params[:id])
+    @opinion.increment!(:opinion_count)
   end
 
   def require_login
