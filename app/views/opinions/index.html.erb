@@ -25,12 +25,12 @@
     <h4>WHO TO FOLLOW</h4>
     <% current_user.not_following.each do |f| %>
       <div class="user-section">
-        <div class="picture">
+        <div class="user-photo">
           <%= avatar_for(f) %>
         </div>  
         <div class="user-details">
-          <%= f.fullname %>
           <%= link_to f.username, user_path(f.id) %>
+          <%= f.fullname %>
         </div>
       </div>
     <% end %>

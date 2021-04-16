@@ -1,11 +1,8 @@
 class OpinionsController < ApplicationController
   before_action :require_login, only: %i[create show index]
 
-  def index
-    @opinion = Opinion.new
-  end
-
   def create
+    # @opinion = current_user.opinions.build(opinion_params)
     @opinion = Opinion.new(opinion_param)
     @opinion.author_id = current_user.id
 
@@ -20,7 +17,11 @@ class OpinionsController < ApplicationController
 
   def show
     @opinion = Opinion.find(params[:id])
-    @opinion.increment!(:opinion_count)
+    # @opinion.increment!(:opinion_count)
+  end
+
+  def index
+    @opinion = Opinion.new
   end
 
   def require_login
@@ -31,6 +32,6 @@ class OpinionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def opinion_param
-    params.require(:opinion).permit(:author_id, :text, :createdAt)
+    params.require('opinion').permit(:text)
   end
 end

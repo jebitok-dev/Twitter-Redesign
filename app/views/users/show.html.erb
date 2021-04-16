@@ -1,17 +1,15 @@
 <div class="user-section">
   <div class="middle-section container">
-      <img src="https://source.unsplash.com/800x200" alt="">
+    <img class="cover-img" src="https://source.unsplash.com/800x200">
     <div class="new-tweets">
-      <h4>ALL OPINIONS</h4>
-      <% current_user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
+      <h4>ALL TWEETS</h4>
+      <% @user.created_opinions.ordered_by_most_recent.all.each  do |opinion| %>
         <div class="user-det">
-          <%= link_to user_path(current_user), class: 'user' do %>
-            <%= avatar_for(current_user)%>
-          <% end %>
+          <%= avatar_for(@user) %>
+          <%# <img class="user-photo" src="<%= @user.photo %>
           <div class="user-name">
-            <span><%= current_user.username %></span>
+            <span><%= @user.username %></span>
             <span><%= opinion.text%></span>
-            <p><%= opinion.created_at.strftime("%Y/%m/%d")%></p>
           </div>
         </div>
       <% end %>
@@ -20,40 +18,40 @@
   <div class="rightbar-user">
     <div class="user-det">
       <div class="photo-adduser">
-        <% if !current_user.already_follow?(current_user.id) && current_user.id!=current_user.id%>
-          <%= link_to follow_user_path(current_user.id) do %>
+        <% if !current_user.already_follow?(@user.id) && @user.id!=current_user.id%>
+          <%= link_to follow_user_path(@user.id) do %>
             <span class="material-icons">add_circle_outline</span>
           <% end %>
           <% else %>
             <span class="material-icons" style="color: #376e9a">add_circle_outline</span>
-        <% end %>      
+        <% end %>
+        <%= avatar_for(@user) %>
         <span class="material-icons">list</span>
       </div>
       <div class="username-name">
-        <%= avatar_for(current_user) %>
-        <span><%= current_user.fullname%></span>
-        <span>@<%= current_user.username %></span>
+        <span><%= @user.fullname%></span>
+        <span>@<%= @user.username %></span>
       </div>
     </div>
     <div class="tweets-follows">
       <div class="section">
-        <span><%= current_user.opinion_count %></span>
+        <span><%= @user.opinion_count %></span>
         <span>Tweets</span>
       </div>
       <div class="line"></div>
       <div class="section">
-        <span><%= current_user.count_followers %></span>
+        <span><%= @user.count_followers %></span>
         <span>Following</span>
       </div>
       <div class="line"></div>
       <div class="section">
-        <span><%= current_user.count_following %></span>
+        <span><%= @user.count_following %></span>
         <span>Followers</span>
       </div>
     </div>
     <div class="followed_by">
       <span>FOLLOWED BY</span>
-        <% current_user.user_followers.each do |followers| %>
+        <% @user.user_followers.each do |followers| %>
           <div class="follower-det">
             <img class="profile-photo" src="<%= followers.photo %>">
             <div class="follower-name">

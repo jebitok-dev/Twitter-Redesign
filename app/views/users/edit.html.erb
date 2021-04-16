@@ -1,5 +1,5 @@
 <div class="edit">
-  <img class="image" src="<%= current_user.photo %>">
+ <%= avatar_for(current_user) %>
   <%= form_for @user do |user| %>
     <div class="edit-path">
       <%= flash[:success] %>
@@ -19,3 +19,4 @@
           <%= user.submit "Update info", class:'btn' %>
     </div>
   <% end %>
+</div>
